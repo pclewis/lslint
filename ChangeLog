@@ -1,0 +1,89 @@
+0.3.0: 2007-11-23
+	- Added llGetObjectDetails() and OBJECT_* constants
+	- Builtin functions can be specified on command line with -b [file]
+
+0.2.9: 2007-06-26
+	- Added llRegionSay(), HTTP_BODY_TRUNCATED
+
+0.2.8: 2007-04-02
+	- Added llStringTrim(), STRING_TRIM, STRING_TRIM_HEAD, STRING_TRIM_TAIL,
+			llSetLinkTexture(), llSetLinkPrimitiveParams()
+
+0.2.7: 2006-12-06
+	- Added 1.13.0 functions/constants:
+			llGetObjectPrimCount(), llGetParcelPrimOwners(), llGetParcelMaxPrims(),
+			llGetParcelPrimCount(), llGetParcelDetails(), PARCEL_COUNT_*,
+			PARCEL_DETAILS_*
+	- Added 1.11.2 constants:
+			DATA_PAYINFO, PARCEL_FLAG_RESTRICT_PUSHOBJECT,
+			REGION_FLAG_RESTRICT_PUSHOBJECT
+
+0.2.6: 2006-06-21
+	- Fixed llSin, llListSort (Lazink Maeterlinck, Natalie Weeks, Trevor Langdon)
+	- Added PRIM_POINT_LIGHT, PRIM_FLEXIBLE, PRIM_TEXGEN_* (Kermitt Quirk)
+	- Added HTTP_BODY_MAXLENGTH, HTTP_VERIFY_CERT, PARCEL_FLAG_*
+
+0.2.5: 2006-05-29
+	- added new constants and functions from versions 1.9 and 1.10
+	- fixed integer/float (0016, reported by Greg Hauptmann)
+	- fixed global declaration type checking (0017, reported by Greg)
+
+0.2.4: 2006-03-08
+	- fixed ++/-- not counted as assignment (0013, reported by Kermitt Quirk)
+	- fixed integer - float and integer + float (0014 and 0015, reported by Strife)
+
+0.2.3: 2006-02-18
+	- added error when exceeding SL's parser's max token stack depth (150)
+	- fixed ZERO_VECTOR and ZERO_ROTATION expressions (0011, reported by Strife)
+	- added PAY_HIDE, PAY_DEFAULT, DATA_SIM_RATING constants (0012, reported by Kayla Stonecutter)
+	- changed to gcc-style if(a=x) warnings; if((a=x)) doesn't warn.
+
+0.2.2: 2006-02-14
+	- add missing vector/rotation operators (0008, reported by Strife)
+	- fix crash when using global vectors/rotations in operations (0009, reported by Strife)
+	- fix crash when using -v
+	- fix vector.s, vector.qqq, vector.1, etc (0010)
+	- when a warning or error has extra lines of information, they will only be shown once
+	- exit status is the number of errors in the script (negative or >128 for program errors)
+	- added options: -# (show error numbers), -A (check error assertions)
+		these are for debugging/regression testing, but you can use them to ignore warning
+		messages. use -# to get the error number, and then add a comment like $[E12345]
+		on the line you want to ignore that error number on. note that when using -A,
+		warnings are treated as errors.
+
+0.2.1: 2006-02-12
+	- support vector/quaternion constants and (some) operators
+	- fix crash when recovering from statement with syntax error (0007, reported by Strife)
+	- log messages sorted by type and line number, use -S to disable
+
+0.2.0: 2006-02-10
+	- internal:
+		- rewritten as pure/reentrant parser/lexer
+		- logging abstracted for later sorting support
+		- track and propogate constant values
+		- better location tracking
+		- fixed list parsing
+
+	- added options:
+		-v Be verbose (version changed to -V), 
+		-l Show line/column info as range (ex: (1,4)-(1,18))
+
+	- fixed bugs:
+		- llRotateTexture(), llSetVehicleRotationParam(), llGroundContour() (0004, reported by Strife)
+		- suppress list == list warning when either argument is [] (0005, reported by Strife)
+
+	- added warnings:
+		- condition is always true/false
+		- using = as condition: (a = 1) warns, (b = 1) == c does not
+		- empty if statement: if (a); do_thing();
+		- multiple handlers for same event (0006, reported by Strife)
+
+	- added errors:
+		- deprecated functions
+
+0.1.2: 2006-02-08
+	- fixed "var.x" not counting as reference to var (0001, reported by Strife Onizuka)
+	- added error message for empty state (0002, reported by Christopher Omega)
+	- made invalid operator error message meaningful (0003)
+	- check for "state x" within state x (suggested by Unquotable Raven)
+	- check for state change statement in functions, warn about using if hack
