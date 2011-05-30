@@ -34,7 +34,7 @@ endif
 
 ifndef WINDOWS
 OPTIMIZE ?= 
-CXX = g++ -Wall -Wno-non-virtual-dtor -Os -fno-default-inline -fno-omit-frame-pointer -ffloat-store
+CXX = g++ -Wall -Wno-write-strings -Wno-non-virtual-dtor -Os -fno-default-inline -fno-omit-frame-pointer -ffloat-store
 CXXOUTPUT = -o
 ifndef MAC
 LD = g++ -static
@@ -71,6 +71,9 @@ OBJS = lslmini.tab.o lex.yy.o lslmini.o symtab.o builtins.o builtins_txt.o types
 $(PROGRAM): $(OBJS)
 	$(LD) $(LDOUTPUT)"$@" $^
 	$(UPX) "$@"
+
+clean:
+	rm -f $(OBJS) lex.yy.c lslint lslmini.tab.c lslmini.tab.h
 
 $(OBJS): lslmini.hh
 

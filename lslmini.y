@@ -2,6 +2,7 @@
     #include "lslmini.hh"
     #include "logger.hh"
     #include <stdio.h>
+    #include <string.h>
     //int yylex(YYSTYPE *yylval_param, YYLTYPE *yylloc_param);
     extern int yylex (YYSTYPE * yylval_param,YYLTYPE * yylloc_param , void *yyscanner);
 

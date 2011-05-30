@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "lslmini.hh"
 #include "logger.hh"
 
@@ -281,8 +282,8 @@ void LLScriptExpression::determine_type() {
       type = get_child(0)->get_type();
     } else {
       if ( operation == '=' || operation == INC_OP || operation == DEC_OP ) {
-        LLASTNode *last_node     = this;
-        LLASTNode *node          = get_parent();
+        // unused variable // LLASTNode *last_node     = this;
+        // unused variable // LLASTNode *node          = get_parent();
 
         // add assignment
         if ( get_child(0)->get_node_sub_type() == NODE_LVALUE_EXPRESSION && get_child(0)->get_child(0)->get_node_type() == NODE_IDENTIFIER ) {
