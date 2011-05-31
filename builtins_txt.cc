@@ -352,6 +352,7 @@ char *builtins_txt[] = {
 "list     llGetLinkPrimitiveParams( integer link, list params )",
 "void     llLinkParticleSystem( integer link, list rules )",
 "string   llGetHTTPHeader( key request_id, string header )",
+"string   llGetDisplayName( key id )",
 "const integer STATUS_PHYSICS = 0x1",
 "const integer STATUS_ROTATE_X = 0x2",
 "const integer STATUS_ROTATE_Y = 0x4",
