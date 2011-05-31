@@ -14,13 +14,6 @@ typedef float F32;
 #define UUID_STR_LENGTH 36
 #define MAX_NODES       3
 
-#define F_PI        3.14159274f
-#define F_TWO_PI    6.28318548f
-#define F_PI_BY_TWO 1.57079637f
-#define DEG_TO_RAD  0.01745329238f
-#define RAD_TO_DEG  57.29578f
-#define F_SQRT2     1.414213538f
-
 extern class LLScriptScript *script;
 extern int walklevel;
 void print_walk(char *str);

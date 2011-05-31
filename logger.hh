@@ -56,6 +56,8 @@ enum ErrorCode {
     E_NO_OPERATOR,
     E_NO_EVENT_HANDLERS,
     E_PARSER_STACK_DEPTH,
+    E_BUILTIN_LVALUE,
+    E_SHADOW_CONSTANT,
     E_LAST,
     
     

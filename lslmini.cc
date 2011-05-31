@@ -132,7 +132,12 @@ void LLASTNode::define_symbol(LLScriptSymbol *symbol) {
       if ( parent ) {
         shadow = parent->lookup_symbol(symbol->get_name(), symbol->get_symbol_type());
         if ( shadow!= NULL ) {
-          ERROR( IN(symbol), W_SHADOW_DECLARATION, symbol->get_name(), LINECOL(shadow->get_lloc()) );
+          if (shadow->get_sub_type() == SYM_BUILTIN) {
+            ERROR( IN(symbol), E_SHADOW_CONSTANT, symbol->get_name());
+          }
+          else {
+            ERROR( IN(symbol), W_SHADOW_DECLARATION, symbol->get_name(), LINECOL(shadow->get_lloc()) );
+          }
         }
       }
     }
@@ -288,7 +293,12 @@ void LLScriptExpression::determine_type() {
         // add assignment
         if ( get_child(0)->get_node_sub_type() == NODE_LVALUE_EXPRESSION && get_child(0)->get_child(0)->get_node_type() == NODE_IDENTIFIER ) {
           LLScriptIdentifier *id = (LLScriptIdentifier*)get_child(0)->get_child(0);
-          if ( id->get_symbol() ) id->get_symbol()->add_assignment();
+          if ( id->get_symbol() ) {
+             if (id->get_symbol()->get_sub_type() == SYM_BUILTIN) {
+               ERROR( HERE, E_BUILTIN_LVALUE, id->get_symbol()->get_name());
+             }
+             id->get_symbol()->add_assignment();
+          }
         }
       }
     }
