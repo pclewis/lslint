@@ -1,0 +1,779 @@
+float    llSin(float theta)
+float    llCos(float theta)
+float    llTan(float theta)
+float    llAtan2(float y, float x)
+float    llSqrt(float val)
+float    llPow(float base, float exponent)
+integer  llAbs(integer val)
+float    llFabs(float val)
+float    llFrand(float mag)
+integer  llFloor(float val)
+integer  llCeil(float val)
+integer  llRound(float val)
+float    llVecMag(vector v)
+vector   llVecNorm(vector v)
+float    llVecDist(vector v1, vector v2)
+vector   llRot2Euler(rotation q)
+rotation llEuler2Rot(vector v)
+rotation llAxes2Rot(vector fwd, vector left, vector up)
+vector   llRot2Fwd(rotation q)
+vector   llRot2Left(rotation q)
+vector   llRot2Up(rotation q)
+rotation llRotBetween(vector v1, vector v2)
+void     llWhisper(integer channel, string msg)
+void     llSay(integer channel, string msg)
+void     llShout(integer channel, string msg)
+integer  llListen(integer channel, string name, key id, string msg)
+void     llListenControl(integer number, integer active)
+void     llListenRemove(integer number)
+void     llSensor(string name, key id, integer type, float range, float arc)
+void     llSensorRepeat(string name, key id, integer type, float range, float arc, float rate)
+void     llSensorRemove()
+string   llDetectedName(integer number)
+key      llDetectedKey(integer number)
+key      llDetectedOwner(integer number)
+integer  llDetectedType(integer number)
+vector   llDetectedPos(integer number)
+vector   llDetectedVel(integer number)
+vector   llDetectedGrab(integer number)
+rotation llDetectedRot(integer number)
+integer  llDetectedGroup(integer number)
+integer  llDetectedLinkNumber(integer number)
+void     llDie()
+float    llGround(vector v)
+float    llCloud(vector v)
+vector   llWind(vector v)
+void     llSetStatus(integer status, integer value)
+integer  llGetStatus(integer status)
+void     llSetScale(vector scale)
+vector   llGetScale()
+void     llSetColor(vector color, integer face)
+float    llGetAlpha(integer face)
+void     llSetAlpha(float alpha, integer face)
+vector   llGetColor(integer face)
+void     llSetTexture(string texture, integer face)
+void     llScaleTexture(float scales, float scalet, integer face)
+void     llOffsetTexture(float offsets, float offsett, integer face)
+void     llRotateTexture(float rotation, integer face)
+string   llGetTexture(integer face)
+void     llSetPos(vector pos)
+vector   llGetPos()
+vector   llGetLocalPos()
+void     llSetRot(rotation rot)
+rotation llGetRot()
+rotation llGetLocalRot()
+void     llSetForce(vector force, integer local)
+vector   llGetForce()
+integer  llTarget(vector position, float range)
+void     llTargetRemove(integer number)
+integer  llRotTarget(rotation rot, float error)
+void     llRotTargetRemove(integer number)
+void     llMoveToTarget(vector target, float tau)
+void     llStopMoveToTarget()
+void     llApplyImpulse(vector force, integer local)
+void     llApplyRotationalImpulse(vector force, integer local)
+void     llSetTorque(vector torque, integer local)
+vector   llGetTorque()
+void     llSetForceAndTorque(vector force, vector torque, integer local)
+vector   llGetVel()
+vector   llGetAccel()
+vector   llGetOmega()
+float    llGetTimeOfDay()
+float    llGetWallclock()
+float    llGetTime()
+void     llResetTime()
+float    llGetAndResetTime()
+void     llSound(string sound, float volume, integer queue, integer loop)
+void     llPlaySound(string sound, float volume)
+void     llLoopSound(string sound, float volume)
+void     llLoopSoundMaster(string sound, float volume)
+void     llLoopSoundSlave(string sound, float volume)
+void     llPlaySoundSlave(string sound, float volume)
+void     llTriggerSound(string sound, float volume)
+void     llStopSound()
+void     llPreloadSound(string sound)
+string   llGetSubString(string src, integer start, integer end)
+string   llDeleteSubString(string src, integer start, integer end)
+string   llInsertString(string dst, integer position, string src)
+string   llToUpper(string src)
+string   llToLower(string src)
+integer  llGiveMoney(key destination, integer amount)
+void     llMakeExplosion(integer particles, float scale, float vel, float lifetime, float arc, string texture, vector offset)
+void     llMakeFountain(integer particles, float scale, float vel, float lifetime, float arc, integer bounce, string texture, vector offset, float bounce_offset)
+void     llMakeSmoke(integer particles, float scale, float vel, float lifetime, float arc, string texture, vector offset)
+void     llMakeFire(integer particles, float scale, float vel, float lifetime, float arc, string texture, vector offset)
+void     llRezObject(string inventory, vector pos, vector vel, rotation rot, integer param)
+void     llLookAt(vector target, float strength, float damping)
+void     llStopLookAt()
+void     llSetTimerEvent(float sec)
+void     llSleep(float sec)
+float    llGetMass()
+void     llCollisionFilter(string name, key id, integer accept)
+void     llTakeControls(integer controls, integer accept, integer pass_on)
+void     llReleaseControls()
+void     llAttachToAvatar(integer attachment)
+void     llDetachFromAvatar()
+void     llTakeCamera(key avatar)
+void     llReleaseCamera(key avatar)
+key      llGetOwner()
+void     llInstantMessage(key user, string message)
+void     llEmail(string address, string subject, string message)
+void     llGetNextEmail(string address, string subject)
+key      llGetKey()
+void     llSetBuoyancy(float buoyancy)
+void     llSetHoverHeight(float height, integer water, float tau)
+void     llStopHover()
+void     llMinEventDelay(float delay)
+void     llSoundPreload(string sound)
+void     llRotLookAt(rotation target, float strength, float damping)
+integer  llStringLength(string str)
+void     llStartAnimation(string anim)
+void     llStopAnimation(string anim)
+void     llPointAt(vector pos)
+void     llStopPointAt()
+void     llTargetOmega(vector axis, float spinrate, float gain)
+integer  llGetStartParameter()
+void     llGodLikeRezObject(key inventory, vector pos)
+void     llRequestPermissions(key agent, integer perm)
+key      llGetPermissionsKey()
+integer  llGetPermissions()
+integer  llGetLinkNumber()
+void     llSetLinkColor(integer linknumber, vector color, integer face)
+void     llCreateLink(key target, integer parent)
+void     llBreakLink(integer linknum)
+void     llBreakAllLinks()
+key      llGetLinkKey(integer linknum)
+string   llGetLinkName(integer linknum)
+integer  llGetInventoryNumber(integer type)
+string   llGetInventoryName(integer type, integer number)
+void     llSetScriptState(string name, integer run)
+float    llGetEnergy()
+void     llGiveInventory(key destination, string inventory)
+void     llRemoveInventory(string inventory)
+void     llSetText(string text, vector color, float alpha)
+float    llWater(vector v)
+void     llPassTouches(integer pass)
+key      llRequestAgentData(key id, integer data)
+key      llRequestInventoryData(string name)
+void     llSetDamage(float damage)
+void     llTeleportAgentHome(key id)
+void     llModifyLand(integer action, integer size)
+void     llCollisionSound(string impact_sound, float impact_volume)
+void     llCollisionSprite(string impact_sprite)
+string   llGetAnimation(key id)
+void     llResetScript()
+void     llMessageLinked(integer linknum, integer num, string str, key id)
+void     llPushObject(key id, vector impulse, vector ang_impulse, integer local)
+void     llPassCollisions(integer pass)
+string   llGetScriptName()
+integer  llGetNumberOfSides()
+rotation llAxisAngle2Rot(vector axis, float angle)
+vector   llRot2Axis(rotation rot)
+float    llRot2Angle(rotation rot)
+float    llAcos(float val)
+float    llAsin(float val)
+float    llAngleBetween(rotation a, rotation b)
+key      llGetInventoryKey(string name)
+void     llAllowInventoryDrop(integer add)
+vector   llGetSunDirection()
+vector   llGetTextureOffset(integer side)
+vector   llGetTextureScale(integer side)
+float    llGetTextureRot(integer side)
+integer  llSubStringIndex(string source, string pattern)
+key      llGetOwnerKey(key id)
+vector   llGetCenterOfMass()
+list     llListSort(list src, integer stride, integer ascending)
+integer  llGetListLength(list src)
+integer  llList2Integer(list src, integer index)
+float    llList2Float(list src, integer index)
+string   llList2String(list src, integer index)
+key      llList2Key(list src, integer index)
+vector   llList2Vector(list src, integer index)
+rotation llList2Rot(list src, integer index)
+list     llList2List(list src, integer start, integer end)
+list     llDeleteSubList(list src, integer start, integer end)
+integer  llGetListEntryType(list src, integer index)
+string   llList2CSV(list src)
+list     llCSV2List(string src)
+list     llListRandomize(list src, integer stride)
+list     llList2ListStrided(list src, integer start, integer end, integer stride)
+vector   llGetRegionCorner()
+list     llListInsertList(list dest, list src, integer start)
+integer  llListFindList(list src, list test)
+string   llGetObjectName()
+void     llSetObjectName(string name)
+string   llGetDate()
+integer  llEdgeOfWorld(vector pos, vector dir)
+integer  llGetAgentInfo(key id)
+void     llAdjustSoundVolume(float volume)
+void     llSetSoundQueueing(integer queue)
+void     llSetSoundRadius(float radius)
+string   llKey2Name(key id)
+void     llSetTextureAnim(integer mode, integer face, integer sizex, integer sizey, float start, float length, float rate)
+void     llTriggerSoundLimited(string sound, float volume, vector tne, vector bsw)
+void     llEjectFromLand(key pest)
+list     llParseString2List(string src, list separators, list spacers)
+integer  llOverMyLand(key id)
+key      llGetLandOwnerAt(vector pos)
+key      llGetNotecardLine(string name, integer line)
+vector   llGetAgentSize(key id)
+integer  llSameGroup(key id)
+void     llUnSit(key id)
+vector   llGroundSlope(vector v)
+vector   llGroundNormal(vector v)
+vector   llGroundContour(vector v)
+integer  llGetAttached()
+integer  llGetFreeMemory()
+string   llGetRegionName()
+float    llGetRegionTimeDilation()
+float    llGetRegionFPS()
+void     llParticleSystem(list rules)
+void     llGroundRepel(float height, integer water, float tau)
+void     llGiveInventoryList(key destination, string category, list inventory)
+void     llSetVehicleType(integer type)
+void     llSetVehicleFloatParam(integer param, float value)
+void     llSetVehicleVectorParam(integer param, vector vec)
+void     llSetVehicleRotationParam(integer param, rotation rot)
+void     llSetVehicleFlags(integer flags)
+void     llRemoveVehicleFlags(integer flags)
+void     llSitTarget(vector offset, rotation rot)
+key      llAvatarOnSitTarget()
+void     llAddToLandPassList(key avatar, float hours)
+void     llSetTouchText(string text)
+void     llSetSitText(string text)
+void     llSetCameraEyeOffset(vector offset)
+void     llSetCameraAtOffset(vector offset)
+string   llDumpList2String(list src, string separator)
+integer  llScriptDanger(vector pos)
+void     llDialog(key avatar, string message, list buttons, integer chat_channel)
+void     llVolumeDetect(integer detect)
+void     llResetOtherScript(string name)
+integer  llGetScriptState(string name)
+void     llRemoteLoadScript()
+void     llSetRemoteScriptAccessPin(integer pin)
+void     llRemoteLoadScriptPin(key target, string name, integer pin, integer running, integer start_param)
+void     llOpenRemoteDataChannel()
+key      llSendRemoteData(key channel, string dest, integer idata, string sdata)
+void     llRemoteDataReply(key channel, key message_id, string sdata, integer idata)
+void     llCloseRemoteDataChannel(key channel)
+string   llMD5String(string src, integer nonce)
+void     llSetPrimitiveParams(list rules)
+string   llStringToBase64(string str)
+string   llBase64ToString(string str)
+string   llXorBase64Strings(string s1, string s2)
+void     llRemoteDataSetRegion()
+float    llLog10(float val)
+float    llLog(float val)
+list     llGetAnimationList(key id)
+void     llSetParcelMusicURL(string url)
+vector   llGetRootPosition()
+rotation llGetRootRotation()
+string   llGetObjectDesc()
+void     llSetObjectDesc(string name)
+key      llGetCreator()
+string   llGetTimestamp()
+void     llSetLinkAlpha(integer linknumber, float alpha, integer face)
+integer  llGetNumberOfPrims()
+key      llGetNumberOfNotecardLines(string name)
+list     llGetBoundingBox(key object)
+vector   llGetGeometricCenter()
+list     llGetPrimitiveParams(list params)
+string   llIntegerToBase64(integer number)
+integer  llBase64ToInteger(string str)
+float    llGetGMTclock()
+string   llGetSimulatorHostname()
+void     llSetLocalRot(rotation rot)
+list     llParseStringKeepNulls(string src, list separators, list spacers)
+void     llRezAtRoot(string inventory, vector pos, vector vel, rotation rot, integer param)
+integer  llGetObjectPermMask(integer mask)
+void     llSetObjectPermMask(integer mask, integer value)
+integer  llGetInventoryPermMask(string item, integer mask)
+void     llSetInventoryPermMask(string item, integer mask, integer value)
+key      llGetInventoryCreator(string item)
+void     llOwnerSay(string msg)
+key      llRequestSimulatorData(string simulator, integer data)
+void     llForceMouselook(integer mouselook)
+float    llGetObjectMass(key id)
+list     llListReplaceList(list dest, list src, integer start, integer end)
+void     llLoadURL(key avatar_id, string message, string url)
+void     llParcelMediaCommandList(list command)
+list     llParcelMediaQuery(list query)
+integer  llModPow(integer a, integer b, integer c)
+integer  llGetInventoryType(string name)
+void     llSetPayPrice(integer price, list quick_pay_buttons)
+vector   llGetCameraPos()
+rotation llGetCameraRot()
+void     llSetPrimURL(string url)
+void     llRefreshPrimURL()
+string   llEscapeURL(string url)
+string   llUnescapeURL(string url)
+void     llMapDestination(string simname, vector pos, vector look_at)
+void     llAddToLandBanList(key avatar, float hours)
+void     llRemoveFromLandPassList(key avatar)
+void     llRemoveFromLandBanList(key avatar)
+void     llSetCameraParams(list rules)
+void     llClearCameraParams()
+float    llListStatistics(integer operation, list l)
+integer  llGetUnixTime()
+integer  llGetParcelFlags(vector pos)
+integer  llGetRegionFlags()
+string   llXorBase64StringsCorrect(string s1, string s2)
+key      llHTTPRequest(string url, list parameters, string body)
+void     llResetLandBanList()
+void     llResetLandPassList()
+integer  llGetObjectPrimCount(key object_id)
+list     llGetParcelPrimOwners(vector pos)
+integer  llGetParcelPrimCount(vector pos, integer category, integer sim_wide)
+integer  llGetParcelMaxPrims(vector pos, integer sim_wide)
+list     llGetParcelDetails(vector pos, list params)
+void     llSetLinkPrimitiveParams(integer linknumber, list rules)
+void     llSetLinkPrimitiveParamsFast(integer linknumber, list rules)
+void     llSetLinkTexture(integer link_pos, string texture, integer face)
+string   llStringTrim(string src, integer trim_type)
+void     llRegionSay(integer channel, string msg)
+list     llGetObjectDetails(key id, list params)
+void     llSetClickAction(integer action)
+integer  llGetRegionAgentCount()
+void     llTextBox(key avatar, string message, integer chat_channel)
+string   llGetAgentLanguage(key id)
+vector   llDetectedTouchUV(integer number)
+integer  llDetectedTouchFace(integer number)
+vector   llDetectedTouchPos(integer number)
+vector   llDetectedTouchNormal(integer number)
+vector   llDetectedTouchBinormal(integer number)
+vector   llDetectedTouchST(integer number)
+string   llSHA1String(string sr)
+key      llRequestURL()
+void     llHTTPResponse(key request_id, integer status, string body)
+integer  llGetFreeURLs()
+void     llSetLinkTextureAnim( integer link, integer mode, integer face, integer sizex, integer sizey, float start, float length, float rate )
+key      llRequestDisplayName( key id )
+list     llGetLinkPrimitiveParams( integer link, list params )
+void     llLinkParticleSystem( integer link, list rules )
+string   llGetHTTPHeader( key request_id, string header )
+const integer STATUS_PHYSICS = 0x1
+const integer STATUS_ROTATE_X = 0x2
+const integer STATUS_ROTATE_Y = 0x4
+const integer STATUS_ROTATE_Z = 0x8
+const integer STATUS_PHANTOM = 0x10
+const integer STATUS_SANDBOX = 0x20
+const integer STATUS_BLOCK_GRAB = 0x40
+const integer STATUS_DIE_AT_EDGE = 0x80
+const integer STATUS_RETURN_AT_EDGE = 0x100
+const integer AGENT_FLYING = 0x1
+const integer AGENT_ATTACHMENTS = 0x2
+const integer AGENT_SCRIPTED = 0x4
+const integer AGENT_MOUSELOOK = 0x8
+const integer AGENT_SITTING = 0x10
+const integer AGENT_ON_OBJECT = 0x20
+const integer AGENT_AWAY = 0x40
+const integer AGENT_WALKING = 0x80
+const integer AGENT_IN_AIR = 0x100
+const integer AGENT_TYPING = 0x200
+const integer AGENT_CROUCHING = 0x400
+const integer AGENT_BUSY = 0x800
+const integer AGENT_ALWAYS_RUN = 0x1000
+const integer ANIM_ON = 0x1
+const integer LOOP = 0x2
+const integer REVERSE = 0x4
+const integer PING_PONG = 0x8
+const integer SMOOTH = 0x10
+const integer ROTATE = 0x20
+const integer SCALE = 0x40
+const integer ALL_SIDES = -1
+const integer LINK_ROOT = 0
+const integer LINK_SET = -1
+const integer LINK_ALL_OTHERS = -2
+const integer LINK_ALL_CHILDREN = -3
+const integer LINK_THIS = -4
+const integer AGENT = 0x1
+const integer ACTIVE = 0x2
+const integer PASSIVE = 0x4
+const integer SCRIPTED = 0x8
+const integer CONTROL_FWD = 0x1
+const integer CONTROL_BACK = 0x2
+const integer CONTROL_LEFT = 0x4
+const integer CONTROL_RIGHT = 0x8
+const integer CONTROL_ROT_LEFT = 0x100
+const integer CONTROL_ROT_RIGHT = 0x200
+const integer CONTROL_UP = 0x10
+const integer CONTROL_DOWN = 0x20
+const integer CONTROL_LBUTTON = 0x10000000
+const integer CONTROL_ML_LBUTTON = 0x40000000
+const integer PERMISSION_DEBIT = 0x2
+const integer PERMISSION_TAKE_CONTROLS = 0x4
+const integer PERMISSION_REMAP_CONTROLS = 0x8
+const integer PERMISSION_TRIGGER_ANIMATION = 0x10
+const integer PERMISSION_ATTACH = 0x20
+const integer PERMISSION_RELEASE_OWNERSHIP = 0x40
+const integer PERMISSION_CHANGE_LINKS = 0x80
+const integer PERMISSION_CHANGE_JOINTS = 0x100
+const integer PERMISSION_CHANGE_PERMISSIONS = 0x200
+const integer PERMISSION_TRACK_CAMERA = 0x400
+const integer PERMISSION_CONTROL_CAMERA = 0x800
+const integer INVENTORY_TEXTURE = 0
+const integer INVENTORY_SOUND = 1
+const integer INVENTORY_OBJECT = 6
+const integer INVENTORY_SCRIPT = 10
+const integer INVENTORY_LANDMARK = 3
+const integer INVENTORY_CLOTHING = 5
+const integer INVENTORY_NOTECARD = 7
+const integer INVENTORY_BODYPART = 13
+const integer INVENTORY_ANIMATION = 20
+const integer INVENTORY_GESTURE = 21
+const integer INVENTORY_ALL = -1
+const integer INVENTORY_NONE = -1
+const integer CHANGED_INVENTORY = 0x1
+const integer CHANGED_COLOR = 0x2
+const integer CHANGED_SHAPE = 0x4
+const integer CHANGED_SCALE = 0x8
+const integer CHANGED_TEXTURE = 0x10
+const integer CHANGED_LINK = 0x20
+const integer CHANGED_ALLOWED_DROP = 0x40
+const integer CHANGED_OWNER = 0x80
+const integer CHANGED_REGION = 0x100
+const integer CHANGED_TELEPORT = 0x200
+const integer CAMERA_ACTIVE = 12
+const integer CAMERA_BEHINDNESS_ANGLE = 8
+const integer CAMERA_BEHINDNESS_LAG = 9
+const integer CAMERA_DISTANCE = 7
+const integer CAMERA_FOCUS = 17
+const integer CAMERA_FOCUS_LAG = 6
+const integer CAMERA_FOCUS_LOCKED = 22
+const integer CAMERA_FOCUS_OFFSET = 1
+const integer CAMERA_FOCUS_THRESHOLD = 11
+const integer CAMERA_PITCH = 0
+const integer CAMERA_POSITION = 13
+const integer CAMERA_POSITION_LAG = 5
+const integer CAMERA_POSITION_LOCKED = 21
+const integer CAMERA_POSITION_THRESHOLD = 10
+const integer REGION_FLAG_ALLOW_DAMAGE = 0x1
+const integer REGION_FLAG_FIXED_SUN = 0x10
+const integer REGION_FLAG_BLOCK_TERRAFORM = 0x40
+const integer REGION_FLAG_SANDBOX = 0x100
+const integer REGION_FLAG_DISABLE_COLLISIONS = 0x1000
+const integer REGION_FLAG_DISABLE_PHYSICS = 0x4000
+const integer REGION_FLAG_BLOCK_FLY = 0x80000
+const integer REGION_FLAG_ALLOW_DIRECT_TELEPORT = 0x100000
+const integer REGION_FLAG_RESTRICT_PUSHOBJECT = 0x400000
+const integer LIST_STAT_MAX = 2
+const integer LIST_STAT_MIN = 1
+const integer LIST_STAT_MEAN = 3
+const integer LIST_STAT_MEDIAN = 4
+const integer LIST_STAT_STD_DEV = 5
+const integer LIST_STAT_SUM = 6
+const integer LIST_STAT_SUM_SQUARES = 7
+const integer LIST_STAT_NUM_COUNT = 8
+const integer LIST_STAT_GEOMETRIC_MEAN = 9
+const integer LIST_STAT_RANGE = 0
+const integer DEBUG_CHANNEL = 2147483647
+const integer HTTP_METHOD = 0
+const integer HTTP_MIMETYPE = 1
+const integer HTTP_BODY_MAXLENGTH = 2
+const integer HTTP_VERIFY_CERT = 3
+const integer HTTP_BODY_TRUNCATED = 0
+const integer OBJECT_UNKNOWN_DETAIL = -1
+const integer OBJECT_NAME = 1
+const integer OBJECT_DESC = 2
+const integer OBJECT_POS = 3
+const integer OBJECT_ROT = 4
+const integer OBJECT_VELOCITY = 5
+const integer OBJECT_OWNER = 6
+const integer OBJECT_GROUP = 7
+const integer OBJECT_CREATOR = 8
+const integer TYPE_INTEGER = 1
+const integer TYPE_FLOAT = 2
+const integer TYPE_STRING = 3
+const integer TYPE_KEY = 4
+const integer TYPE_VECTOR = 5
+const integer TYPE_ROTATION = 6
+const integer TYPE_INVALID = 0
+const string NULL_KEY = \"00000000-0000-0000-0000-000000000000\"
+const string EOF = \"\\n\\n\\n\"
+const string URL_REQUEST_GRANTED = \"URL_REQUEST_GRANTED\"
+const string URL_REQUEST_DENIED = \"URL_REQUEST_DENIED\"
+const float PI = 3.14159274f
+const float TWO_PI = 6.28318548f
+const float PI_BY_TWO = 1.57079637f
+const float DEG_TO_RAD = 0.01745329238f
+const float RAD_TO_DEG = 57.29578f
+const float SQRT2 = 1.414213538f
+const integer ATTACH_CHEST = 1
+const integer ATTACH_HEAD = 2
+const integer ATTACH_LSHOULDER = 3
+const integer ATTACH_RSHOULDER = 4
+const integer ATTACH_LHAND = 5
+const integer ATTACH_RHAND = 6
+const integer ATTACH_LFOOT = 7
+const integer ATTACH_RFOOT = 8
+const integer ATTACH_BACK = 9
+const integer ATTACH_PELVIS = 10
+const integer ATTACH_MOUTH = 11
+const integer ATTACH_CHIN = 12
+const integer ATTACH_LEAR = 13
+const integer ATTACH_REAR = 14
+const integer ATTACH_LEYE = 15
+const integer ATTACH_REYE = 16
+const integer ATTACH_NOSE = 17
+const integer ATTACH_RUARM = 18
+const integer ATTACH_RLARM = 19
+const integer ATTACH_LUARM = 20
+const integer ATTACH_LLARM = 21
+const integer ATTACH_RHIP = 22
+const integer ATTACH_RULEG = 23
+const integer ATTACH_RLLEG = 24
+const integer ATTACH_LHIP = 25
+const integer ATTACH_LULEG = 26
+const integer ATTACH_LLLEG = 27
+const integer ATTACH_BELLY = 28
+const integer ATTACH_RPEC = 29
+const integer ATTACH_LPEC = 30
+const integer LAND_LEVEL = 0
+const integer LAND_RAISE = 1
+const integer LAND_LOWER = 2
+const integer LAND_SMOOTH = 3
+const integer LAND_NOISE = 4
+const integer LAND_REVERT = 5
+const integer LAND_SMALL_BRUSH = 1
+const integer LAND_MEDIUM_BRUSH = 2
+const integer LAND_LARGE_BRUSH = 3
+const integer DATA_ONLINE = 1
+const integer DATA_NAME = 2
+const integer DATA_BORN = 3
+const integer DATA_RATING = 4
+const integer DATA_SIM_POS = 5
+const integer DATA_SIM_STATUS = 6
+const integer DATA_SIM_RATING = 7
+const integer DATA_PAYINFO = 8
+const integer REMOTE_DATA_CHANNEL = 1
+const integer REMOTE_DATA_REQUEST = 2
+const integer REMOTE_DATA_REPLY = 3
+const integer PSYS_PART_FLAGS = 0
+const integer PSYS_PART_START_COLOR = 1
+const integer PSYS_PART_START_ALPHA = 2
+const integer PSYS_PART_START_SCALE = 5
+const integer PSYS_PART_END_COLOR = 3
+const integer PSYS_PART_END_ALPHA = 4
+const integer PSYS_PART_END_SCALE = 6
+const integer PSYS_PART_MAX_AGE = 7
+const integer PSYS_PART_WIND_MASK = 0x008
+const integer PSYS_PART_INTERP_COLOR_MASK = 0x001
+const integer PSYS_PART_INTERP_SCALE_MASK = 0x002
+const integer PSYS_PART_BOUNCE_MASK = 0x004
+const integer PSYS_PART_FOLLOW_SRC_MASK = 0x010
+const integer PSYS_PART_FOLLOW_VELOCITY_MASK = 0x020
+const integer PSYS_PART_TARGET_POS_MASK = 0x040
+const integer PSYS_PART_EMISSIVE_MASK = 0x100
+const integer PSYS_PART_TARGET_LINEAR_MASK = 0x080
+const integer PSYS_SRC_MAX_AGE = 19
+const integer PSYS_SRC_PATTERN = 9
+const integer PSYS_SRC_INNERANGLE = 10
+const integer PSYS_SRC_OUTERANGLE = 11
+const integer PSYS_SRC_ANGLE_BEGIN = 22
+const integer PSYS_SRC_ANGLE_END = 23
+const integer PSYS_SRC_BURST_RATE = 13
+const integer PSYS_SRC_BURST_PART_COUNT = 15
+const integer PSYS_SRC_BURST_RADIUS = 16
+const integer PSYS_SRC_BURST_SPEED_MIN = 17
+const integer PSYS_SRC_BURST_SPEED_MAX = 18
+const integer PSYS_SRC_ACCEL = 8
+const integer PSYS_SRC_TEXTURE = 12
+const integer PSYS_SRC_TARGET_KEY = 20
+const integer PSYS_SRC_OMEGA = 21
+const integer PSYS_SRC_PATTERN_DROP = 0x01
+const integer PSYS_SRC_PATTERN_EXPLODE = 0x02
+const integer PSYS_SRC_PATTERN_ANGLE = 0x04
+const integer PSYS_SRC_PATTERN_ANGLE_CONE = 0x08
+const integer PSYS_SRC_PATTERN_ANGLE_CONE_EMPTY = 0x10
+const integer VEHICLE_TYPE_NONE = 0
+const integer VEHICLE_TYPE_SLED = 1
+const integer VEHICLE_TYPE_CAR = 2
+const integer VEHICLE_TYPE_BOAT = 3
+const integer VEHICLE_TYPE_AIRPLANE = 4
+const integer VEHICLE_TYPE_BALLOON = 5
+const integer VEHICLE_REFERENCE_FRAME = 44
+const integer VEHICLE_LINEAR_FRICTION_TIMESCALE = 16
+const integer VEHICLE_ANGULAR_FRICTION_TIMESCALE = 17
+const integer VEHICLE_LINEAR_MOTOR_DIRECTION = 18
+const integer VEHICLE_ANGULAR_MOTOR_DIRECTION = 19
+const integer VEHICLE_LINEAR_MOTOR_OFFSET = 20
+const integer VEHICLE_HOVER_HEIGHT = 24
+const integer VEHICLE_HOVER_EFFICIENCY = 25
+const integer VEHICLE_HOVER_TIMESCALE = 26
+const integer VEHICLE_BUOYANCY = 27
+const integer VEHICLE_LINEAR_DEFLECTION_EFFICIENCY = 28
+const integer VEHICLE_LINEAR_DEFLECTION_TIMESCALE = 29
+const integer VEHICLE_LINEAR_MOTOR_TIMESCALE = 30
+const integer VEHICLE_LINEAR_MOTOR_DECAY_TIMESCALE = 31
+const integer VEHICLE_ANGULAR_DEFLECTION_EFFICIENCY = 32
+const integer VEHICLE_ANGULAR_DEFLECTION_TIMESCALE = 33
+const integer VEHICLE_ANGULAR_MOTOR_TIMESCALE = 34
+const integer VEHICLE_ANGULAR_MOTOR_DECAY_TIMESCALE = 35
+const integer VEHICLE_VERTICAL_ATTRACTION_EFFICIENCY = 36
+const integer VEHICLE_VERTICAL_ATTRACTION_TIMESCALE = 37
+const integer VEHICLE_BANKING_EFFICIENCY = 38
+const integer VEHICLE_BANKING_MIX = 39
+const integer VEHICLE_BANKING_TIMESCALE = 40
+const integer VEHICLE_FLAG_NO_FLY_UP = 0x1
+const integer VEHICLE_FLAG_NO_DEFLECTION_UP = 0x1
+const integer VEHICLE_FLAG_LIMIT_ROLL_ONLY = 0x2
+const integer VEHICLE_FLAG_HOVER_WATER_ONLY = 0x4
+const integer VEHICLE_FLAG_HOVER_TERRAIN_ONLY = 0x8
+const integer VEHICLE_FLAG_HOVER_GLOBAL_HEIGHT = 0x10
+const integer VEHICLE_FLAG_HOVER_UP_ONLY = 0x20
+const integer VEHICLE_FLAG_LIMIT_MOTOR_UP = 0x40
+const integer VEHICLE_FLAG_MOUSELOOK_STEER = 0x80
+const integer VEHICLE_FLAG_MOUSELOOK_BANK = 0x100
+const integer VEHICLE_FLAG_CAMERA_DECOUPLED = 0x200
+const integer PRIM_TYPE = 9
+const integer PRIM_MATERIAL = 2
+const integer PRIM_PHYSICS = 3
+const integer PRIM_TEMP_ON_REZ = 4
+const integer PRIM_PHANTOM = 5
+const integer PRIM_POSITION = 6
+const integer PRIM_SIZE = 7
+const integer PRIM_ROTATION = 8
+const integer PRIM_TEXTURE = 17
+const integer PRIM_COLOR = 18
+const integer PRIM_BUMP_SHINY = 19
+const integer PRIM_FULLBRIGHT = 20
+const integer PRIM_FLEXIBLE = 21
+const integer PRIM_TEXGEN = 22
+const integer PRIM_POINT_LIGHT = 23
+const integer PRIM_GLOW = 25
+const integer PRIM_TEXGEN_DEFAULT = 0
+const integer PRIM_TEXGEN_PLANAR = 1
+const integer PRIM_TYPE_BOX = 0
+const integer PRIM_TYPE_CYLINDER = 1
+const integer PRIM_TYPE_PRISM = 2
+const integer PRIM_TYPE_SPHERE = 3
+const integer PRIM_TYPE_TORUS = 4
+const integer PRIM_TYPE_TUBE = 5
+const integer PRIM_TYPE_RING = 6
+const integer PRIM_TYPE_SCULPT = 7
+const integer PRIM_SCULPT_TYPE_SPHERE = 1
+const integer PRIM_SCULPT_TYPE_TORUS = 2
+const integer PRIM_SCULPT_TYPE_PLANE = 3
+const integer PRIM_SCULPT_TYPE_CYLINDER = 4
+const integer PRIM_SCULPT_FLAG_INVERT = 64
+const integer PRIM_SCULPT_FLAG_MIRROR = 128
+const vector TOUCH_INVALID_TEXCOORD = <-1.0,-1.0,0.0>
+const integer PRIM_HOLE_DEFAULT = 0x00
+const integer PRIM_HOLE_CIRCLE = 0x10
+const integer PRIM_HOLE_SQUARE = 0x20
+const integer PRIM_HOLE_TRIANGLE = 0x30
+const integer PRIM_MATERIAL_STONE = 0
+const integer PRIM_MATERIAL_METAL = 1
+const integer PRIM_MATERIAL_GLASS = 2
+const integer PRIM_MATERIAL_WOOD = 3
+const integer PRIM_MATERIAL_FLESH = 4
+const integer PRIM_MATERIAL_PLASTIC = 5
+const integer PRIM_MATERIAL_RUBBER = 6
+const integer PRIM_MATERIAL_LIGHT = 7
+const integer PRIM_SHINY_NONE = 0
+const integer PRIM_SHINY_LOW = 1
+const integer PRIM_SHINY_MEDIUM = 2
+const integer PRIM_SHINY_HIGH = 3
+const integer PRIM_BUMP_NONE = 0
+const integer PRIM_BUMP_BRIGHT = 1
+const integer PRIM_BUMP_DARK = 2
+const integer PRIM_BUMP_WOOD = 3
+const integer PRIM_BUMP_BARK = 4
+const integer PRIM_BUMP_BRICKS = 5
+const integer PRIM_BUMP_CHECKER = 6
+const integer PRIM_BUMP_CONCRETE = 7
+const integer PRIM_BUMP_TILE = 8
+const integer PRIM_BUMP_STONE = 9
+const integer PRIM_BUMP_DISKS = 10
+const integer PRIM_BUMP_GRAVEL = 11
+const integer PRIM_BUMP_BLOBS = 12
+const integer PRIM_BUMP_SIDING = 13
+const integer PRIM_BUMP_LARGETILE = 14
+const integer PRIM_BUMP_STUCCO = 15
+const integer PRIM_BUMP_SUCTION = 16
+const integer PRIM_BUMP_WEAVE = 17
+const integer MASK_BASE = 0
+const integer MASK_OWNER = 1
+const integer MASK_GROUP = 2
+const integer MASK_EVERYONE = 3
+const integer MASK_NEXT = 4
+const integer PERM_TRANSFER = 0x2000
+const integer PERM_MODIFY = 0x4000
+const integer PERM_COPY = 0x8000
+const integer PERM_MOVE = 0x80000
+const integer PERM_ALL = 0x7FFFFFFF
+const integer PARCEL_MEDIA_COMMAND_STOP = 0
+const integer PARCEL_MEDIA_COMMAND_PAUSE = 1
+const integer PARCEL_MEDIA_COMMAND_PLAY = 2
+const integer PARCEL_MEDIA_COMMAND_LOOP = 3
+const integer PARCEL_MEDIA_COMMAND_TEXTURE = 4
+const integer PARCEL_MEDIA_COMMAND_URL = 5
+const integer PARCEL_MEDIA_COMMAND_TIME = 6
+const integer PARCEL_MEDIA_COMMAND_AGENT = 7
+const integer PARCEL_MEDIA_COMMAND_UNLOAD = 8
+const integer PARCEL_MEDIA_COMMAND_AUTO_ALIGN = 9
+const integer PAY_HIDE = -1
+const integer PAY_DEFAULT = -2
+const integer PARCEL_FLAG_ALLOW_FLY = 0x1
+const integer PARCEL_FLAG_ALLOW_SCRIPTS = 0x2
+const integer PARCEL_FLAG_ALLOW_LANDMARK = 0x8
+const integer PARCEL_FLAG_ALLOW_TERRAFORM = 0x10
+const integer PARCEL_FLAG_ALLOW_DAMAGE = 0x20
+const integer PARCEL_FLAG_ALLOW_CREATE_OBJECTS = 0x40
+const integer PARCEL_FLAG_USE_ACCESS_GROUP = 0x100
+const integer PARCEL_FLAG_USE_ACCESS_LIST = 0x200
+const integer PARCEL_FLAG_USE_BAN_LIST = 0x400
+const integer PARCEL_FLAG_USE_LAND_PASS_LIST = 0x800
+const integer PARCEL_FLAG_LOCAL_SOUND_ONLY = 0x8000
+const integer PARCEL_FLAG_RESTRICT_PUSHOBJECT = 0x200000
+const integer PARCEL_FLAG_ALLOW_CREATE_GROUP_OBJECTS = 0x4000000
+const integer PARCEL_COUNT_TOTAL = 0x0
+const integer PARCEL_COUNT_OWNER = 0x1
+const integer PARCEL_COUNT_GROUP = 0x2
+const integer PARCEL_COUNT_OTHER = 0x3
+const integer PARCEL_COUNT_SELECTED = 0x4
+const integer PARCEL_COUNT_TEMP = 0x5
+const integer PARCEL_DETAILS_NAME = 0x0
+const integer PARCEL_DETAILS_DESC = 0x1
+const integer PARCEL_DETAILS_OWNER = 0x2
+const integer PARCEL_DETAILS_GROUP = 0x3
+const integer PARCEL_DETAILS_AREA = 0x4
+const integer STRING_TRIM_HEAD = 0x01
+const integer STRING_TRIM_TAIL = 0x02
+const integer STRING_TRIM = 0x03
+const vector ZERO_VECTOR = <0.0,0.0,0.0>
+const rotation ZERO_ROTATION = <0.0,0.0,0.0,1.0>
+event at_rot_target(integer tnum, rotation targetrot, rotation ourrot)
+event attach(key id)
+event at_target(integer tnum, vector targetpos, vector ourpos)
+event changed(integer change)
+event collision_end(integer num_detected)
+event collision(integer num_detected)
+event collision_start(integer num_detected)
+event control(key id, integer held, integer change)
+event dataserver(key request_id, string data)
+event email(string time, string address, string subj, string message, integer num_left)
+event http_request(key request_id, string method, string body)
+event http_response(key request_id, integer status, list metadata, string body)
+event land_collision_end(vector pos)
+event land_collision_start(vector pos)
+event land_collision(vector pos)
+event link_message(integer sender_num, integer num, string str, key id)
+event listen(integer channel, string name, key id, string message)
+event money(key id, integer amount)
+event moving_end()
+event moving_start()
+event no_sensor()
+event not_at_rot_target()
+event not_at_target()
+event object_rez(key id)
+event on_rez(integer start_param)
+event remote_data(integer event_type, key channel, key message_id, string sender, integer idata, string sdata)
+event run_time_permissions(integer perm)
+event sensor(integer num_detected)
+event state_entry()
+event state_exit()
+event timer()
+event touch_end(integer num_detected)
+event touch(integer num_detected)
+event touch_start(integer num_detected)
