@@ -1,3 +1,7 @@
+0.4.0: 2010-05-31
+   - Moved constants into builtins.txt
+	- Moved events into builtins.txt
+
 0.3.0: 2007-11-23
 	- Added llGetObjectDetails() and OBJECT_* constants
 	- Builtin functions can be specified on command line with -b [file]
