@@ -261,6 +261,10 @@ const char *Logger::error_messages[] = {
   "Parser stack depth exceeded; SL will throw a syntax error here.",
   "`%s' is a constant and cannot be used as an lvalue.",
   "`%s' is a constant and cannot be used in a variable declaration.",
+  "Declaring `%s' as parameter %d of `%s' which should be `%s %s'.",
+  "Too many parameters for event `%s'.",
+  "Too few parameters for event `%s'.",
+  "`%s' is not a valid event name.",
   
 };
 

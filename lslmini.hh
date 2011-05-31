@@ -320,8 +320,8 @@ class LLScriptState : public LLASTNode {
 
 class LLScriptEventHandler : public LLASTNode {
   public:
-    LLScriptEventHandler( class LLScriptEvent *event, class LLScriptStatement *body )
-      : LLASTNode(2, event, body) {
+    LLScriptEventHandler( class LLScriptIdentifier *identifier, class LLScriptFunctionDec *decl, class LLScriptStatement *body )
+      : LLASTNode(3, identifier, decl, body) {
         symbol_table = new LLScriptSymbolTable();
     };
     virtual char *get_node_name() { return "event handler"; }

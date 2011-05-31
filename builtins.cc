@@ -87,7 +87,24 @@ void LLScriptScript::define_builtins() {
                   ));
       }
       else if (!strcmp(ret_type, "event")) {
-         printf("ignoring event\n");
+         name     = strtok(NULL, " (),");
+
+         if ( ret_type == NULL || name == NULL ) {
+            fprintf(stderr, "error parsing %s: %s\n", builtins_file, original);
+            exit(EXIT_FAILURE);
+            return;
+         }
+
+         dec = new LLScriptFunctionDec();
+         while ( (ptype = strtok(NULL, " (),")) != NULL ) {
+            if ( (pname = strtok(NULL, " (),")) != NULL ) {
+               dec->push_child(new LLScriptIdentifier( str_to_type(ptype), strdup(pname)));
+            }
+         }
+
+         define_symbol( new LLScriptSymbol(
+                  strdup(name), str_to_type("void"), SYM_EVENT, SYM_BUILTIN, dec
+                  ));
       }
       else {
          name     = strtok(NULL, " (),");

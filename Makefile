@@ -34,10 +34,10 @@ endif
 
 ifndef WINDOWS
 OPTIMIZE ?= 
-CXX = g++ -Wall -Wno-write-strings -Wno-non-virtual-dtor -Os -fno-default-inline -fno-omit-frame-pointer -ffloat-store
+CXX = g++ -g -Wall -Wno-write-strings -Wno-non-virtual-dtor -fno-default-inline -fno-omit-frame-pointer -ffloat-store
 CXXOUTPUT = -o
 ifndef MAC
-LD = g++ -static
+LD = g++ -g -static
 else
 CXX += -arch i386 -arch ppc
 LD = g++ -arch i386 -arch ppc

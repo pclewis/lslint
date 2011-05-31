@@ -34,37 +34,68 @@ void LLScriptIfStatement::final_pre_checks() {
 }
 
 void LLScriptEventHandler::final_pre_checks() {
-  int found_before = 0, found_after = 0;
-  EventId event_id = ((LLScriptEvent*)get_child(0))->get_event_id();
-  bool found_self = false;
   LLASTNode *node = NULL; 
-  LLASTNode *first = NULL;
+  bool is_last = true;
+  int found = 0;
+  LLScriptIdentifier *id = (LLScriptIdentifier *)get_child(0);
 
-  // check all of our siblings
-  for ( node = get_parent()->get_children(); node; node = node->get_next() ) {
-    // see if we found ourself
-    if ( node == this ) {
-      found_self = true;
-      continue;
-    }
-
-    // ignore anything that's not an event handler
+  // check for duplicates
+  for (node = get_parent()->get_children(); node; node = node->get_next()) {
     if ( node->get_node_type() != NODE_EVENT_HANDLER )
       continue;
-
-    if ( ((LLScriptEvent*)node->get_child(0))->get_event_id() == event_id ) {
-      if (found_self) {
-        ++found_after;  // we only want to know if we're last, so short circuit here
-        break;
-      } else {
-        if ( first == NULL )
-          first = node;
-        ++found_before;
-      }
-    }
+     LLScriptIdentifier *other_id = (LLScriptIdentifier *)node->get_child(0);
+     if (!strcmp(id->get_name(), other_id->get_name())) {
+        found++;
+        is_last = (node == this);
+     }
+  }
+  if (found > 1 && is_last) {
+     ERROR( HERE, W_MULTIPLE_EVENT_HANDLERS, id->get_name() );
   }
 
-  if ( found_before > 0 && found_after == 0 ) {
-    ERROR( HERE, W_MULTIPLE_EVENT_HANDLERS, event_names[event_id] );
+  // check parameters
+  if (id->get_symbol() == NULL) {
+     id->resolve_symbol(SYM_EVENT);
   }
+
+  if (id->get_symbol() != NULL) {
+     // check argument types
+     LLScriptFunctionDec       *function_decl;
+     LLScriptIdentifier        *declared_param_id;
+     LLScriptIdentifier        *passed_param_id;
+     int                        param_num = 1;
+
+     function_decl         = id->get_symbol()->get_function_decl();
+     declared_param_id     = (LLScriptIdentifier*) function_decl->get_children();
+     passed_param_id       = (LLScriptIdentifier*) get_child(1)->get_children();
+
+     while ( declared_param_id != NULL && passed_param_id != NULL ) {
+        if ( !passed_param_id->get_type()->can_coerce(
+                 declared_param_id->get_type()) ) {
+           ERROR( HERE, E_ARGUMENT_WRONG_TYPE_EVENT,
+                 passed_param_id->get_type()->get_node_name(),
+                 param_num,
+                 id->get_name(),
+                 declared_param_id->get_type()->get_node_name(),
+                 declared_param_id->get_name()
+                );
+           return;
+        }
+        passed_param_id   = (LLScriptIdentifier*) passed_param_id->get_next();
+        declared_param_id = (LLScriptIdentifier*) declared_param_id->get_next();
+        ++param_num;
+     }
+
+     if ( passed_param_id != NULL ) {
+        printf("too many, extra is %s\n", passed_param_id->get_name());
+        ERROR( HERE, E_TOO_MANY_ARGUMENTS_EVENT, id->get_name() );
+     } else if ( declared_param_id != NULL ) {
+        printf("too few, extra is %s\n", declared_param_id->get_name());
+        ERROR( HERE, E_TOO_FEW_ARGUMENTS_EVENT, id->get_name() );
+     }
+  }
+  else {
+     ERROR( HERE, E_INVALID_EVENT, id->get_name());
+  }
+
 }

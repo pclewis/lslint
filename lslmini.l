@@ -72,40 +72,6 @@ FS			(f|F)
 "do"				{ return(DO); }
 "while"				{ return(WHILE); }
 
-"state_entry"			{ return(STATE_ENTRY); }
-"state_exit"			{ return(STATE_EXIT); }
-"touch_start"			{ return(TOUCH_START); }
-"touch"					{ return(TOUCH); }
-"touch_end"				{ return(TOUCH_END); }
-"collision_start"		{ return(COLLISION_START); }
-"collision"				{ return(COLLISION); }
-"collision_end"			{ return(COLLISION_END); }
-"land_collision_start"	{ return(LAND_COLLISION_START); }
-"land_collision"		{ return(LAND_COLLISION); }
-"land_collision_end"	{ return(LAND_COLLISION_END); }
-"timer"					{ return(TIMER); }
-"listen"				{ return(CHAT); }
-"sensor"				{ return(SENSOR); }
-"no_sensor"				{ return(NO_SENSOR); }
-"control"				{ return(CONTROL); }
-"print"					{ return(PRINT); }
-"at_target"				{ return(AT_TARGET); }
-"not_at_target"			{ return(NOT_AT_TARGET); }
-"at_rot_target"			{ return(AT_ROT_TARGET); }
-"not_at_rot_target"		{ return(NOT_AT_ROT_TARGET); }
-"money"					{ return(MONEY); }
-"email"					{ return(EMAIL); }
-"run_time_permissions"	{ return(RUN_TIME_PERMISSIONS); }
-"changed"				{ return(INVENTORY); }
-"attach"				{ return(ATTACH); }
-"dataserver"			{ return(DATASERVER); }
-"moving_start"			{ return(MOVING_START); }
-"moving_end"			{ return(MOVING_END); }
-"link_message"			{ return(LINK_MESSAGE); }
-"on_rez"				{ return(REZ); }
-"object_rez"			{ return(OBJECT_REZ); }
-"remote_data"			{ return(REMOTE_DATA); }
-"http_response"         { return(HTTP_RESPONSE); }
 "."						{ return(PERIOD); }
 
 
