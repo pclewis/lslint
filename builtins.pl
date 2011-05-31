@@ -1,5 +1,7 @@
 # Usage: perl builtins.pl < lscript_library.cpp > builtins.txt
 
+# TODO FIX: this doesn't do the various constants and events.  Fix it!
+
 my %typestr = (
   'i' => 'integer',
   's' => 'string',
