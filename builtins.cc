@@ -73,8 +73,8 @@ void LLScriptScript::define_builtins() {
       }
 
       if (!strcmp(ret_type, "const")) {
-         ret_type = strtok(NULL, " (),");
-         name     = strtok(NULL, " (),");
+         ret_type = strtok(NULL, " =(),");
+         name     = strtok(NULL, " =(),");
 
          if ( ret_type == NULL || name == NULL ) {
             fprintf(stderr, "error parsing %s: %s\n", builtins_file, original);
