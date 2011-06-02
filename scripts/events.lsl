@@ -1,5 +1,9 @@
 boy(integer girl) {}
 
+
+state_entry() {
+}
+
 default {
    state_entry() {
       boy("foo");

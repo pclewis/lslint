@@ -87,10 +87,10 @@ void LLScriptEventHandler::final_pre_checks() {
      }
 
      if ( passed_param_id != NULL ) {
-        printf("too many, extra is %s\n", passed_param_id->get_name());
+        // printf("too many, extra is %s\n", passed_param_id->get_name());
         ERROR( HERE, E_TOO_MANY_ARGUMENTS_EVENT, id->get_name() );
      } else if ( declared_param_id != NULL ) {
-        printf("too few, extra is %s\n", declared_param_id->get_name());
+        // printf("too few, extra is %s\n", declared_param_id->get_name());
         ERROR( HERE, E_TOO_FEW_ARGUMENTS_EVENT, id->get_name() );
      }
   }

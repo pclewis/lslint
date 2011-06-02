@@ -265,6 +265,7 @@ const char *Logger::error_messages[] = {
   "Too many parameters for event `%s'.",
   "Too few parameters for event `%s'.",
   "`%s' is not a valid event name.",
+  "`%s' is an event name, and cannot be used as a function name.",
   
 };
 

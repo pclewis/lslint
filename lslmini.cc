@@ -124,7 +124,12 @@ void LLASTNode::define_symbol(LLScriptSymbol *symbol) {
     // Check if already defined
     shadow = symbol_table->lookup( symbol->get_name() );
     if ( shadow ) {
-      ERROR( IN(symbol), E_DUPLICATE_DECLARATION, symbol->get_name(), shadow->get_lloc()->first_line, shadow->get_lloc()->first_column );
+      if (shadow->get_sub_type() == SYM_BUILTIN) {
+         ERROR( IN(symbol), E_DUPLICATE_DECLARATION_EVENT, symbol->get_name() );
+      }
+      else {
+         ERROR( IN(symbol), E_DUPLICATE_DECLARATION, symbol->get_name(), shadow->get_lloc()->first_line, shadow->get_lloc()->first_column );
+      }
     } else {
       symbol_table->define(symbol);
 
