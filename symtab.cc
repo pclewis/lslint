@@ -34,6 +34,9 @@ void LLScriptSymbolTable::check_symbols() {
     if ( (*sym)->get_sub_type() != SYM_BUILTIN && (*sym)->get_sub_type() != SYM_EVENT_PARAMETER && (*sym)->get_references() == 0 ) {
       ERROR( IN(*sym), W_DECLARED_BUT_NOT_USED, LLScriptSymbol::get_type_name((*sym)->get_symbol_type()), (*sym)->get_name() );
     }
+    if ( (*sym)->get_sub_type() != SYM_BUILTIN && (*sym)->get_sub_type() == SYM_EVENT_PARAMETER && (*sym)->get_references() == 0 ) {
+      ERROR( IN(*sym), W_UNUSED_EVENT_PARAMETER, (*sym)->get_name() );
+    }
   }
 }
 

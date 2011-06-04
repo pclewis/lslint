@@ -227,6 +227,17 @@ void LLScriptFunctionDec::define_symbols() {
   }
 }
 
+void LLScriptEventDec::define_symbols() {
+  LLScriptIdentifier    *identifier;
+  LLASTNode             *node = get_children();
+  while (node) {
+    identifier = (LLScriptIdentifier *)node;
+    identifier->set_symbol( new LLScriptSymbol( identifier->get_name(), identifier->get_type(), SYM_VARIABLE, SYM_EVENT_PARAMETER, node->get_lloc() ) );
+    define_symbol( identifier->get_symbol() );
+    node = node->get_next();
+  }
+}
+
 void LLScriptEvent::define_symbols() {
   LLScriptIdentifier    *identifier;
   LLASTNode             *node = get_children();

@@ -55,6 +55,7 @@
 	class LLScriptStatement			*statement;
 	class LLScriptGlobalFunction	*global_funcs;
 	class LLScriptFunctionDec		*global_decl;
+	class LLScriptEventDec		*global_event_decl;
 	class LLScriptState				*state;
 	class LLScriptGlobalStorage		*global_store;
 	class LLScriptScript			*script;
@@ -173,6 +174,8 @@
 %type <global_funcs>	global_function
 %type <global_decl>		function_parameters
 %type <global_decl>		function_parameter
+%type <global_event_decl>		event_parameters
+%type <global_event_decl>		event_parameter
 %type <state>			states
 %type <state>			other_states
 %type <state>			default
@@ -504,6 +507,30 @@ function_parameter
 	}
 	;
 
+event_parameters
+	: event_parameter															
+	{  
+    $$ = $1;
+	}
+	| event_parameter ',' event_parameters									
+	{  
+      if ( $1 ) {
+          $1->push_child($3->get_children());
+          delete $3;
+          $$ = $1;
+      } else {
+          $$ = $3;
+      }
+	}
+	;
+	
+event_parameter
+	: typename IDENTIFIER															
+	{  
+    $$ = new LLScriptEventDec( new LLScriptIdentifier($1, $2, &@2) );
+	}
+	;
+
 states
 	: default																		
 	{  
@@ -584,7 +611,7 @@ event
 	{  
     $$ = new LLScriptEventHandler(MAKEID(LST_NULL, $1, @1), NULL, $4);
 	}
-	| IDENTIFIER '(' function_parameters ')' compound_statement
+	| IDENTIFIER '(' event_parameters ')' compound_statement
 	{  
     $$ = new LLScriptEventHandler(MAKEID(LST_NULL, $1, @1), $3, $5);
 	}

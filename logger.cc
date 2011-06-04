@@ -286,6 +286,7 @@ const char *Logger::warning_messages[] = {
     "Make sure you separate opeartors with spaces.\n"
     "See: http://forums.secondlife.com/showthread.php?t=60257",
   "%s `%s' declared but never used.",
+  "Unused event parameter `%s'.",
   "Using == on lists only compares lengths.\n"
     "See: http://secondlife.com/badgeo/wakka.php?wakka=annoyances",
   "Condition is always true.",

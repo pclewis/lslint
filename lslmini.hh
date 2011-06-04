@@ -309,6 +309,15 @@ class LLScriptFunctionDec : public LLASTNode {
     virtual LLNodeType get_node_type() { return NODE_FUNCTION_DEC; };
 };
 
+class LLScriptEventDec : public LLASTNode {
+  public:
+    LLScriptEventDec() : LLASTNode(0) {};
+    LLScriptEventDec( class LLScriptIdentifier *identifier ) : LLASTNode(1, identifier) {};
+    virtual void define_symbols();
+    virtual char *get_node_name() { return "event decl"; }
+    virtual LLNodeType get_node_type() { return NODE_EVENT_DEC; };
+};
+
 class LLScriptState : public LLASTNode {
   public:
     LLScriptState( class LLScriptIdentifier *identifier, class LLScriptEventHandler *state_body )
@@ -320,7 +329,7 @@ class LLScriptState : public LLASTNode {
 
 class LLScriptEventHandler : public LLASTNode {
   public:
-    LLScriptEventHandler( class LLScriptIdentifier *identifier, class LLScriptFunctionDec *decl, class LLScriptStatement *body )
+    LLScriptEventHandler( class LLScriptIdentifier *identifier, class LLScriptEventDec *decl, class LLScriptStatement *body )
       : LLASTNode(3, identifier, decl, body) {
         symbol_table = new LLScriptSymbolTable();
     };
