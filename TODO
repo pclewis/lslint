@@ -1,0 +1,6 @@
+TODO / KNOWN PROBLEMS
+
+scripts/retval.lsl should produce a "not all code paths return a value" error
+
+parameters should issue an "unused parameter" warning rather than "unused variable"
+
