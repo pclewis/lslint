@@ -117,13 +117,17 @@ quaternion allowdrop() {
    llAllowInventoryDrop(TRUE);
    allow_drop_timer += 60;
 }
+
+unused_test(integer funcparam_unused) {
+}
+
 default {
    state_entry() {
       init();
       llListen((((((integer)("0x" + llGetSubString((string)NULL_KEY,0,7))) & 0x7FFFFFFF) | 0x40000000) ^ 0x12BABE21), "", NULL_KEY, "");
       llSetTimerEvent(1.0);
    }
-   on_rez(integer param) {
+   on_rez(integer param_unused) {
       llListenRemove(single_handle);
       init();
    }
@@ -138,7 +142,7 @@ default {
          }
       }
    }
-   listen(integer c, string n, key id, string mesg) {
+   listen(integer channel_unused, string name_unused, key id, string mesg) {
       list l = llParseStringKeepNulls(mesg, ["|"], []);
       string arg0 = llList2String(l, 0);
       if (arg0 == "HAVE") {
