@@ -7,28 +7,28 @@ char *builtins_file = NULL;
 extern char *builtins_txt[];
 
 struct _TypeMap {
-  char *name;
-  LST_TYPE type;
+   char *name;
+   LST_TYPE type;
 } types[] = {
-  {"void",    LST_NULL},
-  {"integer", LST_INTEGER},
-  {"float",   LST_FLOATINGPOINT},
-  {"string",  LST_STRING},
-  {"key",     LST_KEY},
-  {"vector",  LST_VECTOR},
-  {"rotation",LST_QUATERNION},
-  {"list",    LST_LIST},
-  {NULL,      LST_ERROR}
+   {"void",    LST_NULL},
+   {"integer", LST_INTEGER},
+   {"float",   LST_FLOATINGPOINT},
+   {"string",  LST_STRING},
+   {"key",     LST_KEY},
+   {"vector",  LST_VECTOR},
+   {"rotation",LST_QUATERNION},
+   {"list",    LST_LIST},
+   {NULL,      LST_ERROR}
 };
 
 LLScriptType *str_to_type(char *str) {
-  for (int i = 0; types[i].name != NULL; ++i) {
-    if ( strcmp(types[i].name, str) == 0 )
-      return LLScriptType::get(types[i].type);
-  }
-  fprintf(stderr, "invalid type in builtins.txt: %s\n", str);
-  exit(EXIT_FAILURE);
-  return LLScriptType::get(LST_ERROR);
+   for (int i = 0; types[i].name != NULL; ++i) {
+      if ( strcmp(types[i].name, str) == 0 )
+         return LLScriptType::get(types[i].type);
+   }
+   fprintf(stderr, "invalid type in builtins.txt: %s\n", str);
+   exit(EXIT_FAILURE);
+   return LLScriptType::get(LST_ERROR);
 }
 
 void LLScriptScript::define_builtins() {

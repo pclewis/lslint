@@ -70,7 +70,6 @@
 %token					QUATERNION
 %token					LIST
 
-%token					STATE_DEFAULT
 %token					STATE
 %token					EVENT
 %token					JUMP
