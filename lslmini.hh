@@ -298,6 +298,7 @@ class LLScriptGlobalFunction : public LLASTNode {
     virtual void define_symbols();
     virtual char *get_node_name() { return "global func"; }
     virtual LLNodeType get_node_type() { return NODE_GLOBAL_FUNCTION; };
+    virtual void final_pre_checks();
 };
 
 class LLScriptFunctionDec : public LLASTNode {

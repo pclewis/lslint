@@ -14,6 +14,34 @@ quaternion sayto(key id, string s) {
    if ((-1 != llSubStringIndex(llGetObjectDesc(), "{"+("debug:pkg")+"}"))) {
       llOwnerSay("/" + (string)(((((integer)("0x" + llGetSubString((string)id,0,7))) & 0x7FFFFFFF) | 0x40000000) ^ 0x12BABE21) + " " + s);
    }
+   return ZERO_ROTATION;
+}
+quaternion true_only_no() {
+   if (role == 2) {
+      return ZERO_ROTATION;
+   }
+}
+quaternion both_yes() {
+   if (role == 2) {
+      return ZERO_ROTATION;
+   }
+   else {
+      return ZERO_ROTATION;
+   }
+}
+quaternion both_no1() {
+   if (role == 2) {
+   }
+   else {
+      return ZERO_ROTATION;
+   }
+}
+quaternion both_no2() {
+   if (role == 2) {
+      return ZERO_ROTATION;
+   }
+   else {
+   }
 }
 quaternion advertise() {
    string s;

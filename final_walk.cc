@@ -11,6 +11,55 @@ void LLASTNode::final_pre_checks() {
    // none
 }
 
+bool allret(LLASTNode *p) {
+   bool ret = false;
+   if (p->get_node_type() == NODE_STATEMENT && p->get_node_sub_type() == NODE_RETURN_STATEMENT) {
+      // TODO check next value here for unreachable code
+      return true;
+   }
+   else if (p->get_node_type() == NODE_STATEMENT && p->get_node_sub_type() == NODE_IF_STATEMENT) {
+      bool true_branch = p->get_child(1) && allret(p->get_child(1));
+      bool false_branch = p->get_child(2) && allret(p->get_child(2));
+
+      return (true_branch && false_branch);
+   }
+   else if (p->get_node_type() == NODE_STATEMENT && p->get_node_sub_type() == NODE_COMPOUND_STATEMENT) {
+      LLASTNode *q = p->get_children();
+      for (q = p->get_children(); q; q = q->get_next()) {
+         ret |= allret(q);
+      }
+   }
+   else {
+#if 0
+      if (p->get_next()) {
+         ret |= allret(p->get_next());
+      }
+      if (p->get_children()) {
+         ret |= allret(p->get_children());
+      }
+#endif
+   }
+   return ret;
+}
+
+void LLScriptGlobalFunction::final_pre_checks() {
+   LLScriptIdentifier *id = (LLScriptIdentifier *) get_child(0);
+   LLScriptFunctionDec *decl = (LLScriptFunctionDec *) get_child(1);
+   LLScriptStatement *statement = (LLScriptStatement *) get_child(2);
+
+   if (id->get_symbol() == NULL) {
+      id->resolve_symbol(SYM_FUNCTION);
+   }
+
+   if (id->get_symbol() != NULL) {
+      LLScriptType *tipe = id->get_symbol()->get_type();
+      
+      if (tipe->get_itype() != LST_NULL && !allret(statement)) {
+         ERROR(IN(get_child(0)), E_NOT_ALL_PATHS_RETURN);
+      }
+   }
+}
+
 void LLScriptIfStatement::final_pre_checks() {
    // see if expression is constant
    if ( get_child(0)->get_constant_value() != NULL ) {

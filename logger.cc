@@ -252,6 +252,7 @@ const char *Logger::error_messages[] = {
    "%s member assigned %s value (must be float or integer).",
    "Event handlers cannot return a value.",
    "Returning a %s value from a %s function.",
+   "Not all code paths return a value.",
    "%s", // Syntax error, bison includes all the info.
    "Global initialize must be constant.",
    "Expression and constant without operator.\n"
