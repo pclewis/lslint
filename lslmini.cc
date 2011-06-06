@@ -755,9 +755,9 @@ void version() {
    fprintf(stderr, "   :,0WMMMMMMMMMMN;','...',,'...'..\n");
    fprintf(stderr, "    .cNMMMMMMMMMMMK:,,;;.',,'...,,',            lslint v" VERSION "\n");
    fprintf(stderr, "   ,dWMMMMMMMMMMMMMMWWWMKdl,...''..\n");
-   fprintf(stderr, "  ,lWMMMMMMMMMMMMMMMMMMMMMMNo,'':o\n");
-   fprintf(stderr, "  .OMMMMMMMMMMMMMMMMMMMMMMMMMNXNMMx.               CODiNG::\n");
-   fprintf(stderr, ",:.cxKMMWkxNMMMMMMMMMMMMMMXKWMMMKxc.,,                            ~masa~\n");
+   fprintf(stderr, "  ,lWMMMMMMMMMMMMMMMMMMMMMMNo,'':o                 CODiNG::\n");
+   fprintf(stderr, "  .OMMMMMMMMMMMMMMMMMMMMMMMMMNXNMMx.                              ~masa~\n");
+   fprintf(stderr, ",:.cxKMMWkxNMMMMMMMMMMMMMMXKWMMMKxc.,,                      Doran Zemlja\n");
    fprintf(stderr, "  ;c0XMMN;'OMMMMMWNWMMMMMX,.kMMMWKl.\n");
    fprintf(stderr, " ,:':XMMMWWMMMMMNllckMMMMMKKWMMMWo.::,             RELEaSE DaTE::\n");
    fprintf(stderr, "     ;lKMMMMMMMMMKkONMMMMMMMMMMOc.:                           " BUILD_DATE "\n");
