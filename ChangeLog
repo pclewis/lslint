@@ -1,6 +1,9 @@
+0.4.2: 2011-06-06
+	- added "Not all code paths return a value" error
+
 0.4.1: 2011-06-04
-	fixed version number
-	fixed event parameter unused warnings
+	- fixed version number
+	- fixed event parameter unused warnings
 
 0.4.0: 2011-05-31
 	- Moved constants into builtins.txt

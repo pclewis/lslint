@@ -44,7 +44,7 @@ bool allret(LLASTNode *p) {
 
 void LLScriptGlobalFunction::final_pre_checks() {
    LLScriptIdentifier *id = (LLScriptIdentifier *) get_child(0);
-   LLScriptFunctionDec *decl = (LLScriptFunctionDec *) get_child(1);
+   //LLScriptFunctionDec *decl = (LLScriptFunctionDec *) get_child(1);
    LLScriptStatement *statement = (LLScriptStatement *) get_child(2);
 
    if (id->get_symbol() == NULL) {
