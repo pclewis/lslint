@@ -21,9 +21,11 @@ const static int operator_result_table[][4] = {
    // operator   left type           right type          result type
    // ++
    { INC_OP,     LST_INTEGER,        LST_NONE,           LST_INTEGER         },
+   { INC_OP,     LST_FLOATINGPOINT,  LST_NONE,           LST_FLOATINGPOINT   },
 
    // --
    { DEC_OP,     LST_INTEGER,        LST_NONE,           LST_INTEGER         },
+   { DEC_OP,     LST_FLOATINGPOINT,  LST_NONE,           LST_FLOATINGPOINT   },
 
    // =
    { '=',        LST_INTEGER,        LST_INTEGER,        LST_INTEGER         },
