@@ -327,7 +327,6 @@ integer  llGetParcelPrimCount(vector pos, integer category, integer sim_wide)
 integer  llGetParcelMaxPrims(vector pos, integer sim_wide)
 list     llGetParcelDetails(vector pos, list params)
 void     llSetLinkPrimitiveParams(integer linknumber, list rules)
-void     llSetLinkPrimitiveParamsFast(integer linknumber, list rules)
 void     llSetLinkTexture(integer link_pos, string texture, integer face)
 string   llStringTrim(string src, integer trim_type)
 void     llRegionSay(integer channel, string msg)
@@ -335,29 +334,52 @@ list     llGetObjectDetails(key id, list params)
 void     llSetClickAction(integer action)
 integer  llGetRegionAgentCount()
 void     llTextBox(key avatar, string message, integer chat_channel)
-string   llGetAgentLanguage(key id)
+string   llGetAgentLanguage(key avatar)
 vector   llDetectedTouchUV(integer number)
 integer  llDetectedTouchFace(integer number)
 vector   llDetectedTouchPos(integer number)
 vector   llDetectedTouchNormal(integer number)
 vector   llDetectedTouchBinormal(integer number)
 vector   llDetectedTouchST(integer number)
-string   llSHA1String(string sr)
-key      llRequestURL()
-void     llHTTPResponse(key request_id, integer status, string body)
+string   llSHA1String(string msg)
 integer  llGetFreeURLs()
-void     llSetLinkTextureAnim( integer link, integer mode, integer face, integer sizex, integer sizey, float start, float length, float rate )
-key      llRequestDisplayName( key id )
-list     llGetLinkPrimitiveParams( integer link, list params )
-void     llLinkParticleSystem( integer link, list rules )
-string   llGetHTTPHeader( key request_id, string header )
+key      llRequestURL()
 key      llRequestSecureURL()
 void     llReleaseURL(string url)
+void     llHTTPResponse(key request_id, integer status, string body)
+string   llGetHTTPHeader(key request_id, string header)
 integer  llSetPrimMediaParams(integer face, list params)
 list     llGetPrimMediaParams(integer face, list params)
 integer  llClearPrimMedia(integer face)
-integer  llGetLinkNumberOfSides(integer link)
-string   llGetDisplayName( key id )
+void     llSetLinkPrimitiveParamsFast(integer linknumber, list rules)
+list     llGetLinkPrimitiveParams(integer linknumber, list rules)
+void     llLinkParticleSystem(integer linknumber, list rules)
+void     llSetLinkTextureAnim(integer link, integer mode, integer face, integer sizex, integer sizey, float start, float length, float rate)
+integer  llGetLinkNumberOfSides(integer linknumber)
+string   llGetUsername(key id)
+string   llRequestUsername(key id)
+string   llGetDisplayName(key id)
+string   llRequestDisplayName(key id)
+string   llGetEnv(string name)
+key      llAvatarOnLinkSitTarget(integer link)
+list     llCastRay(vector start, vector end, list options)
+integer  llClearLinkMedia(integer link, integer face)
+list     llGetLinkMedia(integer link, integer face, list params)
+integer  llGetMemoryLimit()
+string   llGetParcelMusicURL()
+integer  llGetSPMaxMemory()
+integer  llGetUsedMemory()
+void     llLinkSitTarget(integer link, vector offset, rotation rot)
+integer  llManageEstateAccess(integer action, key avatar)
+void     llScriptProfiler(integer flags)
+void     llSetAngularVelocity(vector force, integer local)
+void     llSetLinkCamera(integer link, vector eye, vector at)
+void     llSetContentType(key request_id, integer content_type)
+void     llSetKeyframedMotion(list keyframes, list options)
+integer  llSetLinkMedia(integer link, integer face, list params)
+integer  llSetMemoryLimit(integer limit )
+void     llSetVelocity(vector force, integer local)
+key      llTransferLindenDollars(key destination, integer amount)
 const integer STATUS_CAST_SHADOWS = 0x200
 const integer CHANGED_REGION_START = CHANGED_REGION_START
 const integer PUBLIC_CHANNEL = 0
@@ -536,10 +558,10 @@ const integer TYPE_KEY = 4
 const integer TYPE_VECTOR = 5
 const integer TYPE_ROTATION = 6
 const integer TYPE_INVALID = 0
-const string NULL_KEY = \"00000000-0000-0000-0000-000000000000\"
-const string EOF = \"\\n\\n\\n\"
-const string URL_REQUEST_GRANTED = \"URL_REQUEST_GRANTED\"
-const string URL_REQUEST_DENIED = \"URL_REQUEST_DENIED\"
+const string NULL_KEY = "00000000-0000-0000-0000-000000000000"
+const string EOF = "\n\n\n"
+const string URL_REQUEST_GRANTED = "URL_REQUEST_GRANTED"
+const string URL_REQUEST_DENIED = "URL_REQUEST_DENIED"
 const float PI = 3.14159274f
 const float TWO_PI = 6.28318548f
 const float PI_BY_TWO = 1.57079637f
@@ -825,3 +847,4 @@ event timer()
 event touch_end(integer num_detected)
 event touch(integer num_detected)
 event touch_start(integer num_detected)
+event transaction_result(key id, integer success, string data)
