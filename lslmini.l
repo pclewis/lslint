@@ -36,6 +36,7 @@ FS			(f|F)
 
  /* exclusive state to eat comments of any length without overflowing any buffers */
 %x COMMENT
+%x C_COMMENT
 
 %%
 %{
@@ -51,6 +52,11 @@ FS			(f|F)
 }
 <COMMENT>.          { /* eat comments */ }
 <COMMENT>\n         { BEGIN 0; LLOC_LINES(1); LLOC_STEP(); } 
+
+"/*"              { BEGIN C_COMMENT; }
+<C_COMMENT>"*/"   { BEGIN 0; LLOC_STEP(); }
+<C_COMMENT>\n     { LLOC_LINES(1); LLOC_STEP(); }
+<C_COMMENT>.      { LLOC_STEP(); }
 
 "integer"			{ return(INTEGER); }
 "float"				{ return(FLOAT_TYPE); }
