@@ -77,6 +77,14 @@ clean:
 
 $(OBJS): lslmini.hh
 
+builtins_txt.cc: builtins.txt
+	echo "char *builtins_txt[] = {" > builtins_txt.cc
+	cat builtins.txt | \
+		sed "s/\"/\\\\\\\"/g" | \
+		sed "s/^/\"/g" | \
+		sed "s/$$/\",/g" >> builtins_txt.cc
+	echo "(char*)0 };" >> builtins_txt.cc
+
 lex.yy.o: lex.yy.c lslmini.tab.h llconstants.hh
 
 lex.yy.o lslmini.tab.o lslmini.o symtab.o builtins.o: lslmini.hh symtab.hh ast.hh types.hh
