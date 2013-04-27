@@ -11,6 +11,10 @@ UNAME = $(shell uname -a | grep Darwin)
 ifneq "$(UNAME)" ""
 MAC = 1
 endif
+UNAME = $(shell uname -p | grep powerpc)
+ifneq "$(UNAME)" ""
+PPC = 1
+endif
 
 # Don't run flex or bison on windows.
 ifndef WINDOWS
@@ -39,8 +43,13 @@ CXXOUTPUT = -o
 ifndef MAC
 LD = g++ -g -static
 else
+ifndef PPC
+CXX += -arch i386
+LD = g++ -arch i386
+else
 CXX += -arch i386 -arch ppc
 LD = g++ -arch i386 -arch ppc
+endif
 endif
 LDOUTPUT = -o 
 UPX = true
