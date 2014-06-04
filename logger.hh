@@ -85,6 +85,7 @@ enum ErrorCode {
     W_CONDITION_ALWAYS_TRUE,
     W_CONDITION_ALWAYS_FALSE,
     W_MULTIPLE_EVENT_HANDLERS,
+    W_L_STRING,
     W_LAST,
     
     
