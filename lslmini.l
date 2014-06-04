@@ -26,12 +26,10 @@ char *parse_string(char *input);
 %}
 
 
-D           [0-9]
-BD			[-]?[0-9]
 N			[0-9]
 L			[a-zA-Z_]
 H			[a-fA-F0-9]
-E			[Ee][+-]?{D}+
+E			[Ee][+-]?{N}+
 FS			(f|F)
 
  /* exclusive state to eat comments of any length without overflowing any buffers */
@@ -45,7 +43,7 @@ FS			(f|F)
   LLOC_STEP();
 %}
 "//"                { BEGIN COMMENT; }
-<COMMENT>"$[E"{D}{5}"]" {
+<COMMENT>"$[E"{N}{5}"]" {
     ErrorCode e = (ErrorCode) strtoul( yytext+3, NULL, 10 );
     LOG( LOG_INFO, yylloc, "Adding assertion for E%d.", (int)e );
     Logger::get()->add_assertion( yylloc->first_line, e );
@@ -82,20 +80,16 @@ FS			(f|F)
 
 
 0[xX]{H}+			{ yylval->ival = strtoul(yytext, NULL, 0);  return(INTEGER_CONSTANT); }
-[-]?{D}+            { yylval->ival = strtoul(yytext, NULL, 10); return(INTEGER_CONSTANT); }
-{BD}+				{
-    yylval->ival = strtoul(yytext, NULL, 10); 
-    ERROR( yylloc, W_BAD_DECIMAL_LEX, yytext, yylval->ival);
-    return(INTEGER_CONSTANT);
-}
+{N}+                { yylval->ival = strtoul(yytext, NULL, 10); return(INTEGER_CONSTANT); }
+
 "TRUE"				{ yylval->ival = 1; return(INTEGER_TRUE); }
 "FALSE"				{ yylval->ival = 0; return(INTEGER_FALSE); }
 
 {L}({L}|{N})*		{ yylval->sval = new char[strlen(yytext) + 1]; strcpy(yylval->sval, yytext); return(IDENTIFIER); }
 
-[-]?{D}+{E}					{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
-[-]?{D}*"."{D}+({E})?{FS}?	{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
-[-]?{D}+"."{D}*({E})?{FS}?	{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
+{N}+{E}						{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
+{N}*"."{N}+({E})?{FS}?		{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
+{N}+"."{N}*({E})?{FS}?		{ yylval->fval = (F32)atof(yytext); return(FP_CONSTANT); }
 
 L?\"(\\.|[^\\"])*\"	{ yylval->sval = parse_string(yytext); return(STRING_CONSTANT); }
 
