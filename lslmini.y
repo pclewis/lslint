@@ -14,9 +14,9 @@
 
     #define LSLINT_STACK_OVERFLOW_AT 150
     inline int _yylex( YYSTYPE * yylval, YYLTYPE *yylloc, void *yyscanner, int stack ) {
-        if ( stack == LSLINT_STACK_OVERFLOW_AT ) {
-            ERROR( yylloc, E_PARSER_STACK_DEPTH );
-        }
+        //if ( stack == LSLINT_STACK_OVERFLOW_AT ) {
+        //    ERROR( yylloc, E_PARSER_STACK_DEPTH );
+        //}
         return yylex( yylval, yylloc, yyscanner );
     }
     #define yylex(a,b,c) _yylex(a, b, c,  (int)(yyssp - yyss))
