@@ -88,10 +88,9 @@ $(OBJS): lslmini.hh
 
 builtins_txt.cc: builtins.txt
 	echo "char *builtins_txt[] = {" > builtins_txt.cc
-	cat builtins.txt | \
-		sed "s/\"/\\\\\\\"/g" | \
-		sed "s/^/\"/g" | \
-		sed "s/$$/\",/g" >> builtins_txt.cc
+	sed -e '/^\/\//d; s/"/\\\"/g; s/^/"/; s/$$/",/' \
+		builtins.txt >> builtins_txt.cc || \
+			{ rm -f builtins_txt.cc ; false ; }
 	echo "(char*)0 };" >> builtins_txt.cc
 
 lex.yy.o: lex.yy.c lslmini.tab.h llconstants.hh
